@@ -15,14 +15,14 @@ const Button = styled.button`
   text-align: center;
   width: 34px;
 
-  ${props => props.winner && css`
+  ${props => (props.winner == 'winner') && css`
     color: green;
   `}
 `
 
 export default function Square(props) {
   return (
-    <Button className="square" onClick={props.onClick} winner={props.winner}>
+    <Button className="square" onClick={props.onClick} winner={props.winner} >
       { props.value }
     </Button>
   );

@@ -87,6 +87,7 @@ export default class Game extends React.Component {
           <Board
             squares = {current.squares}
             onClick = {(i) => this.handleClick(i)}
+            winners = { winner ? winner[1] : null }
           />
         </div>
         <div className="game-info">
