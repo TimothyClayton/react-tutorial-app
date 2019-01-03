@@ -15,6 +15,9 @@ const Button = styled.button`
   text-align: center;
   width: 34px;
 
+  &:focus {
+    outline: none;
+  }
   ${props => (props.winner == 'winner') && css`
     color: green;
   `}

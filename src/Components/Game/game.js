@@ -1,6 +1,14 @@
 import React from 'react';
 import Board from '../Board/board';
+import styled, { css } from 'styled-components'
 
+const GameWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+const GameInfo = styled.div`
+  margin-left: 20px;
+`
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -82,7 +90,7 @@ export default class Game extends React.Component {
     }
 
     return (
-      <div className="game">
+      <GameWrapper>
         <div className="game-board">
           <Board
             squares = {current.squares}
@@ -90,11 +98,11 @@ export default class Game extends React.Component {
             winners = { winner ? winner[1] : null }
           />
         </div>
-        <div className="game-info">
+        <GameInfo className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
-        </div>
-      </div>
+        </GameInfo>
+      </GameWrapper>
     );
   }
 }
