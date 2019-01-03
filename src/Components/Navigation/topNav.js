@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components'
 
 const Nav = styled.nav`
-  background: papayawhip;
+  background: #44786B;
   display: flex;
   padding-left: 12px;
 `
@@ -17,13 +17,17 @@ const NavListItem = styled.li`
   height: var(--main-spacer);
   line-height: var(--main-spacer);
   &:not(:last-of-type) {
-    margin-right: 6px;
+    margin-right: 12px;
   }
 `
 const StyledNavLink = styled(NavLink)`
+  color: white;
   text-decoration: none;
+  display: block;
+  height: 100%;
+  padding: 0 6px;
   &.active {
-    color: red;
+    background: #668F84;
   }
 `
 

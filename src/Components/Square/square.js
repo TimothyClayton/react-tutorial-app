@@ -14,7 +14,6 @@ const Button = styled.button`
   margin-top: -1px;
   padding: 0;
   text-align: center;
-
   &:focus {
     outline: none;
   }
@@ -25,7 +24,7 @@ const Button = styled.button`
 
 export default function Square(props) {
   return (
-    <Button className="square" onClick={props.onClick} winner={props.winner} >
+    <Button className="square" onClick={props.onClick} winner={props.winner}>
       { props.value }
     </Button>
   );

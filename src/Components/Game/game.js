@@ -3,14 +3,60 @@ import Board from '../Board/board';
 import styled, { css } from 'styled-components'
 
 const GameWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: var(--main-spacer);
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  margin-top:var(--main-spacer);
 `
 const GameInfo = styled.div`
-  margin-left: 20px;
+  margin-left:var(--main-spacer);
+  width:140px;
+  background:white;
+  .status {
+    background:#565080;
+    text-align:center;
+    color:white;
+    padding:6px 0;
+  }
+  .moves-list {
+    font-size:12px;
+    list-style-type:none;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    li {
+      width:80%;
+      text-align:center;
+    }
+    li:not(:last-of-type) {
+      margin-bottom:6px;
+    }
+  }
 `
+const Button = styled.button`
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:2px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #283966;
+  width:100%;
+  &:hover {
+    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+    background-color:#476e9e;
+  }
+  &:active {
+    position:relative;
+    top:1px;
+  }
+`
+
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -74,12 +120,11 @@ export default class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'New game';
+      const desc = move ? 'Go to move #' + move : 'New game';
+
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <Button onClick={() => this.jumpTo(move)}>{desc}</Button>
         </li>
       );
     });
@@ -93,16 +138,20 @@ export default class Game extends React.Component {
 
     return (
       <GameWrapper>
-        <div className="game-board">
+        <div className='game-board'>
           <Board
             squares = {current.squares}
             onClick = {(i) => this.handleClick(i)}
             winners = { winner ? winner[1] : null }
           />
         </div>
-        <GameInfo className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+        <GameInfo className='game-info'>
+          <div className='status'>
+            <div>{status}</div>
+          </div>
+          <div className='moves'>
+            <ol className='moves-list'>{moves}</ol>
+          </div>
         </GameInfo>
       </GameWrapper>
     );
