@@ -1,24 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Game from '../Game/game'
-import Instructions from '../Instructions/instructions'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Game from '../Game/game';
+import Instructions from '../Instructions/instructions';
+import PageNotFound from '../Errors/pageNotFound';
+import TopNav from '../Navigation/topNav';
 
 const AppRouter = () => (
   <Router>
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/tic-tac-toe">Tic-Tac-Toe</Link>
-          </li>
-          <li>
-            <Link to="/instructions/">Instructions</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Route path='/tic-tac-toe/' exact component={ Game } />
-      <Route path='/instructions/' component={ Instructions } />
+      <TopNav />
+      <Switch>
+        <Route path='/tic-tac-toe' exact component={ Game } />
+        <Route path='/instructions' component={ Instructions } />
+        <Route component={ PageNotFound } />
+      </Switch>
     </div>
   </Router>
 );
