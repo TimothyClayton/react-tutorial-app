@@ -10,7 +10,7 @@ const AppRouter = () => (
     <div>
       <TopNav />
       <Switch>
-        <Route path='/tic-tac-toe' exact component={ Game } />
+        <Route path='/' exact component={ Game } />
         <Route path='/instructions' component={ Instructions } />
         <Route component={ PageNotFound } />
       </Switch>

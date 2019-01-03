@@ -5,6 +5,8 @@ import styled, { css } from 'styled-components'
 const GameWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: var(--main-spacer);
 `
 const GameInfo = styled.div`
   margin-left: 20px;
