@@ -34,28 +34,6 @@ const GameInfo = styled.div`
     }
   }
 `
-const Button = styled.button`
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	background-color:#7892c2;
-	border-radius:2px;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-weight:bold;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #283966;
-  width:100%;
-  &:hover {
-    background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-    background-color:#476e9e;
-  }
-  &:active {
-    position:relative;
-    top:1px;
-  }
-`
 
 function calculateWinner(squares) {
   const lines = [
@@ -124,7 +102,7 @@ export default class Game extends React.Component {
 
       return (
         <li key={move}>
-          <Button onClick={() => this.jumpTo(move)}>{desc}</Button>
+          <button className='button' onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
